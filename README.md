@@ -1,1 +1,1 @@
-# Bootstrap and Webpack
+# Bootstrap Webpack Demo
