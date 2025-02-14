@@ -1,7 +1,7 @@
 {
   "name": "bootstrap-webpack",
   "version": "1.0.0",
-  "description": "",
+  "description": "Bootstrap with Webpack",
   "private": true,
   "scripts": {
     "build": "webpack",
