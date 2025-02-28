@@ -6,40 +6,35 @@
   "scripts": {
     "build": "webpack",
     "format": "prettier . --write",
-    "server": "node server.js",
     "start": "webpack serve --open",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --watch"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/matthew-shaw/bootstrap-webpack.git"
   },
+  "keywords": [],
   "author": "Matt Shaw",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/matthew-shaw/bootstrap-webpack/issues"
   },
   "homepage": "https://github.com/matthew-shaw/bootstrap-webpack#readme",
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3"
+  },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
     "css-loader": "^7.1.2",
-    "express": "^4.21.2",
     "html-webpack-plugin": "^5.6.3",
     "mini-css-extract-plugin": "^2.9.2",
     "postcss-loader": "^8.1.1",
-    "prettier": "^3.5.1",
+    "sass": "^1.85.1",
     "sass-loader": "^16.0.5",
-    "sass": "^1.85.0",
     "style-loader": "^4.0.0",
+    "webpack": "^5.98.0",
     "webpack-cli": "^6.0.1",
-    "webpack-dev-middleware": "^7.4.2",
-    "webpack-dev-server": "^5.2.0",
-    "webpack": "^5.98.0"
-  },
-  "dependencies": {
-    "@popperjs/core": "^2.11.8",
-    "bootstrap": "^5.3.3",
-    "bootstrap-icons": "^1.11.3"
+    "webpack-dev-server": "^5.2.0"
   }
 }
