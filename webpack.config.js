@@ -3,14 +3,17 @@
 const path = require("path");
 const autoprefixer = require("autoprefixer");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const miniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
+  devtool: "source-map",
   entry: "./src/js/main.js",
   output: {
-    filename: "main.js",
+    filename: "main.min.js",
     path: path.resolve(__dirname, "dist"),
+    clean: true,
   },
   devServer: {
     static: path.resolve(__dirname, "dist"),
@@ -19,8 +22,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({ template: "./src/index.html" }),
-    new miniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "main.min.css",
+    }),
   ],
+  optimization: {
+    minimizer: [`...`, new CssMinimizerPlugin()],
+  },
   module: {
     rules: [
       {
@@ -36,7 +44,7 @@ module.exports = {
         use: [
           {
             // Extracts CSS for each JS file that includes CSS
-            loader: miniCssExtractPlugin.loader,
+            loader: MiniCssExtractPlugin.loader,
           },
           {
             // Interprets `@import` and `url()` like `import/require()` and will resolve them
@@ -54,6 +62,11 @@ module.exports = {
           {
             // Loads a SASS/SCSS file and compiles it to CSS
             loader: "sass-loader",
+            options: {
+              sassOptions: {
+                quietDeps: true,
+              },
+            },
           },
         ],
       },
