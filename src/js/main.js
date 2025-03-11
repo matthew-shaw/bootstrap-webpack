@@ -1,6 +1,3 @@
-// Import our custom CSS
-import "../scss/styles.scss";
-
 // Import just what we need
 // import 'bootstrap/js/dist/alert';
 import "bootstrap/js/dist/button";
