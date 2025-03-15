@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "start": "webpack serve --open"
+    "format": "prettier . --write",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
     "html-webpack-plugin": "^5.6.3",
     "mini-css-extract-plugin": "^2.9.2",
     "postcss-loader": "^8.1.1",
+    "prettier": "^3.5.3",
     "sass": "^1.85.1",
     "sass-loader": "^16.0.5",
     "style-loader": "^4.0.0",
