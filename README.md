@@ -2,6 +2,8 @@
 
 ![Static Badge](https://img.shields.io/badge/Bootstrap-5.3.5-blue)
 
+![Screenshot](screenshot.png)
+
 This repo demonstrates how to use [Webpack](https://webpack.js.org/) to bundle, compile and minify JavaScript, SCSS, images, and fonts, while optimising the output for performance. It uses various loaders and plugins to process files and generate the final build:
 
 - [**CSS Minimizer Webpack Plugin**](https://webpack.js.org/plugins/css-minimizer-webpack-plugin/): Uses [CSSNANO](https://cssnano.github.io/cssnano/) to minimise the CSS output, reducing file size and improving page load times.
