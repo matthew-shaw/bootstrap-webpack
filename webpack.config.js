@@ -1,18 +1,26 @@
+const { PurgeCSSPlugin } = require("purgecss-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const glob = require("glob");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 const postcssPresetEnv = require("postcss-preset-env");
+
+const PATHS = {
+  src: path.join(__dirname, "src"),
+};
 
 module.exports = {
   mode: "production",
   devtool: "source-map",
   devServer: {
     static: path.resolve(__dirname, "dist"),
+    compress: true,
+    port: 8000,
   },
   entry: ["./src/js/main.mjs", "./src/scss/main.scss"],
   output: {
-    filename: "main.min.js",
+    filename: "main.[contenthash].min.js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
@@ -85,7 +93,10 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "main.min.css",
+      filename: "main.[contenthash].min.css",
+    }),
+    new PurgeCSSPlugin({
+      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
     }),
     new HtmlWebpackPlugin({ template: "./src/index.html" }),
   ],
